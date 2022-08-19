@@ -1,6 +1,6 @@
 <script>
 export default {
-  props: ['name', 'selectedItem', 'unselectedItem'],
+  props: ['product', 'selectedItem', 'unselectedItem'],
   data() {
     return {
       isClicked: false,
@@ -13,9 +13,9 @@ export default {
 
       // let parent knows that the item has been clicked
       if (this.isClicked) {
-        this.$emit('selectedItem');
+        this.$emit('selectedItem', this.product);
       } else {
-        this.$emit('unselectedItem');
+        this.$emit('unselectedItem', this.product);
       }
     }
   }
@@ -28,6 +28,6 @@ export default {
     :class="{'bg-slate-800 text-white': isClicked}"
     @click="onClick"
   >
-    {{ name }}
+    {{ product.name }}
   </li>
 </template>

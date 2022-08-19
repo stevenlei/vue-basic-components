@@ -13,15 +13,17 @@ export default {
   },
   data() {
     return {
-      itemsCount: 0,
+      selectedItems: [],
     }
   },
   methods: {
-    add() {
-      this.itemsCount++;
+    add(product) {
+      this.selectedItems.push(product);
+      this.$emit('change', this.selectedItems);
     },
-    subtract() {
-      this.itemsCount--;
+    subtract(product) {
+      this.selectedItems.splice(this.selectedItems.indexOf(product), 1);
+      this.$emit('change', this.selectedItems);
     }
   }
 }
@@ -32,10 +34,10 @@ export default {
     <ListItem
       v-for="product in products"
       :key="product.sku"
-      :name="product.name"
+      :product="product"
       @selectedItem="add"
       @unselectedItem="subtract"
     />
   </ul>
-  <p class="p-6 text-slate-500">{{ itemsCount }} item(s) selected</p>
+  <p class="p-6 text-slate-500">{{ selectedItems.length }} item(s) selected</p>
 </template>
