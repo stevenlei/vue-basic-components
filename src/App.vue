@@ -6,6 +6,33 @@ export default {
   components: {
     List,
     ListItem
+  },
+  data() {
+    return {
+      products: [
+        {
+          sku: 'iphone',
+          name: 'iPhone',
+        },
+        {
+          sku: 'ipad',
+          name: 'iPad',
+        },
+        {
+          sku: 'mac',
+          name: 'Mac',
+        },
+        {
+          sku: 'appletv',
+          name: 'Apple TV',
+        },
+        {
+          sku: 'homepod',
+          name: 'HomePod',
+        },
+        
+      ]
+    }
   }
 }
 </script>
@@ -15,7 +42,7 @@ export default {
     <div class="max-w-sm mx-auto flex-1">
       <h2 class="text-3xl font-bold mb-6">Apple Products</h2>
       <List>
-        <ListItem name="iPhone" />
+        <ListItem v-for="product in products" :key="product.sku" :name="product.name" />
       </List>
     </div>
   </div>
