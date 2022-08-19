@@ -13,7 +13,7 @@ export default {
     <div class="max-w-sm mx-auto flex-1">
       <h2 class="text-3xl font-bold mb-6">Apple Products</h2>
       <ul class="flex flex-col gap-y-4 text-2xl text-slate-600">
-        <list-item name="iPhone" />
+        <ListItem name="iPhone" />
       </ul>
     </div>
   </div>
